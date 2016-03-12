@@ -25,18 +25,20 @@ namespace QteaLib
 
     public TeaDocument(string _name)
     {
-      Meta.Name            = _name;
-      Meta.Path            = "";
-      Meta.FileType        = "";
-      Meta.FileExtension   = "";
+        Meta = new TeaDocumentMeta();
+        Meta.Name            = _name;
+        Meta.Path            = "";
+        Meta.FileType        = "";
+        Meta.FileExtension   = "";
     }
 
     public TeaDocument(string _name, string _path, string _fileType, string _fileExtension)
     {
-      Meta.Name            = _name;
-      Meta.Path            = _path;
-      Meta.FileType        = _fileType;
-      Meta.FileExtension   = _fileExtension;
+        Meta = new TeaDocumentMeta();
+        Meta.Name            = _name;
+        Meta.Path            = _path;
+        Meta.FileType        = _fileType;
+        Meta.FileExtension   = _fileExtension;
     }
 
     private bool Save()
