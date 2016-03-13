@@ -1,59 +1,65 @@
 ﻿using System;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace QteaLib
 {
-  /// <summary>
-  ///   Copyright (c) Aaron Colwill 2016
-  /// </summary>
+    /// <summary>
+    ///   Copyright (c) Aaron Colwill 2016
+    /// </summary>
 
-  [DataContract]
-  public class TeaDocumentMeta
-  {
-    [DataMember] public string Name { get; set; }
-    [DataMember] public string Path { get; set; }
-    [DataMember] public string FileType { get; set; }
-    [DataMember] public string FileExtension { get; set; }
-  }
-
-  public class TeaDocument
-  {
-    public TeaDocumentMeta  Meta { get; set; }
-    public string           Data { get; set; }
-
-    private readonly TeaDocumentIO _io = new TeaDocumentIO();
-
-    public TeaDocument(string _name)
+    [JsonObject]
+    public class TeaDocumentMeta
     {
-        Meta = new TeaDocumentMeta();
-        Meta.Name            = _name;
-        Meta.Path            = "";
-        Meta.FileType        = "";
-        Meta.FileExtension   = "";
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+        [JsonProperty("Path")]
+        public string Path { get; set; }
+        [JsonProperty("FileType")]
+        public string FileType { get; set; }
+        [JsonProperty("FileExtension")]
+        public string FileExtension { get; set; }
     }
 
-    public TeaDocument(string _name, string _path, string _fileType, string _fileExtension)
+    public class TeaDocument
     {
-        Meta = new TeaDocumentMeta();
-        Meta.Name            = _name;
-        Meta.Path            = _path;
-        Meta.FileType        = _fileType;
-        Meta.FileExtension   = _fileExtension;
-    }
+        public TeaDocumentMeta Meta { get; set; }
+        public string Data { get; set; }
 
-    private bool Save()
-    {
-      try
-      {
-        _io.WriteToFile(this);
-      }
-      catch (Exception e)
-      {
-        return false;
-      }
-      return true;
+        private readonly TeaDocumentIO _io = new TeaDocumentIO();
+
+        public TeaDocument(string _name)
+        {
+            Meta                = new TeaDocumentMeta();
+            Meta.Name           = _name;
+            Meta.Path           = "";
+            Meta.FileType       = "";
+            Meta.FileExtension  = "";
+        }
+
+        public TeaDocument(string _name, string _path, string _fileType, string _fileExtension, string _data, bool _create)
+        {
+            Meta                = new TeaDocumentMeta();
+            Meta.Name           = _name;
+            Meta.Path           = _path;
+            Meta.FileType       = _fileType;
+            Meta.FileExtension  = _fileExtension;
+            Data                = _data;
+            if (_create) _io.CreateFile(this);
+        }
+
+        private bool Save()
+        {
+            try
+            {
+                _io.SaveToFile(this);
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            return true;
+        }
     }
-  }
 }
 
 
