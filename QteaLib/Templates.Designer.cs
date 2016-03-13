@@ -22,7 +22,7 @@ namespace QteaLib {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Templates {
+    public class Templates {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace QteaLib {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("QteaLib.Templates", typeof(Templates).Assembly);
@@ -51,12 +51,46 @@ namespace QteaLib {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;!-- syntaxdefinition for JavaScript 2.0 by Svante Lidman --&gt;
+        ///&lt;!-- converted to AvalonEdit format by Siegfried Pammer in 2010 --&gt;
+        ///&lt;SyntaxDefinition name=&quot;JavaScript&quot; extensions=&quot;.js&quot; xmlns=&quot;http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008&quot;&gt;
+        ///	&lt;Color name=&quot;Digits&quot; foreground=&quot;DarkBlue&quot; /&gt;
+        ///	&lt;Color name=&quot;Comment&quot; foreground=&quot;DarkSlateGray&quot; /&gt;
+        ///	&lt;Color name=&quot;String&quot; foreground=&quot;Sienna&quot; /&gt;
+        ///	&lt;Color name=&quot;Character&quot; foreground=&quot;Sienna&quot; /&gt;
+        ///	&lt;Color name=&quot;JavaScriptKeyWords&quot; foreg [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string JSHighlighting {
+            get {
+                return ResourceManager.GetString("JSHighlighting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;!-- syntaxdefinition for JavaScript 2.0 by Svante Lidman --&gt;
+        ///&lt;!-- converted to AvalonEdit format by Siegfried Pammer in 2010 --&gt;
+        ///&lt;SyntaxDefinition name=&quot;JavaScript&quot; extensions=&quot;.js&quot; xmlns=&quot;http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008&quot;&gt;
+        ///	&lt;Color name=&quot;Foreground&quot; foreground=&quot;White&quot; /&gt;
+        ///	&lt;Color name=&quot;Digits&quot; foreground=&quot;DarkBlue&quot; /&gt;
+        ///	&lt;Color name=&quot;Comment&quot; foreground=&quot;DarkSlateGray&quot; /&gt;
+        ///	&lt;Color name=&quot;String&quot; foreground=&quot;Sienna&quot; /&gt;
+        ///	&lt;Color name=&quot;Character&quot; foreground=&quot;Si [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string QmlHighlighting {
+            get {
+                return ResourceManager.GetString("QmlHighlighting", resourceCulture);
             }
         }
         
@@ -70,7 +104,7 @@ namespace QteaLib {
         ///}
         ///.
         /// </summary>
-        internal static string QmlMainTemplate {
+        public static string QmlMainTemplate {
             get {
                 return ResourceManager.GetString("QmlMainTemplate", resourceCulture);
             }

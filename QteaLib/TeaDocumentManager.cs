@@ -20,12 +20,14 @@ namespace QteaLib
 
         public TeaDocumentManager(TeaDocument defaultDocument)
         {
+            if (defaultDocument == null) return;
             _documents.Add(defaultDocument);
             ActiveDocument = _documents[0];
         }
 
         public TeaDocumentManager(string defaultDocumentPath)
         {
+            if (defaultDocumentPath == string.Empty) return;
             _documents.Add(_io.OpenFromPath(defaultDocumentPath));
             ActiveDocument = _documents[0];
         }

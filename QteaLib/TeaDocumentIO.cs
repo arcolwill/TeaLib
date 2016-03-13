@@ -36,6 +36,7 @@ namespace QteaLib
                 // Create source
                 var text = new UTF8Encoding(true).GetBytes(file.Data);
                 _f.Write(text, 0, text.Length);
+                _f.Flush();
                 _f.Close();
             }
             return true;
