@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ITeaPlugin.cs" />
+    <Compile Include="PluginManager.cs" />
     <Compile Include="TeaDocument.cs" />
     <Compile Include="TeaDocumentIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

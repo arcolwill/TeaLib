@@ -24,7 +24,7 @@ namespace QteaLib
             _documents.Add(defaultDocument);
             ActiveDocument = _documents[0];
         }
-
+        
         public TeaDocumentManager(string defaultDocumentPath)
         {
             if (defaultDocumentPath == string.Empty) return;
