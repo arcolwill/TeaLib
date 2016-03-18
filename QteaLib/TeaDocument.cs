@@ -10,14 +10,10 @@ namespace QteaLib
     [JsonObject]
     public class TeaDocumentMeta
     {
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-        [JsonProperty("Path")]
-        public string Path { get; set; }
-        [JsonProperty("FileType")]
-        public string FileType { get; set; }
-        [JsonProperty("FileExtension")]
-        public string FileExtension { get; set; }
+        [JsonProperty("Name")]          public string Name          { get; set; }
+        [JsonProperty("Path")]          public string Path          { get; set; }
+        [JsonProperty("FileType")]      public string FileType      { get; set; }
+        [JsonProperty("FileExtension")] public string FileExtension { get; set; }
     }
 
     public class TeaDocument

@@ -54,8 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Interfaces\ITeaPlugin.cs" />
-    <Compile Include="PluginManager.cs" />
+    <Compile Include="TeaPluginManager.cs" />
     <Compile Include="TeaDocument.cs" />
     <Compile Include="TeaDocumentIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,7 +78,9 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Resources\QmlMainTemplate_1.0.txt" />
-    <Content Include="Resources\QmlHighlighting.xshd" />
+    <Content Include="Resources\QmlHighlighting.xshd">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\JSHighlighting.xshd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace QteaLib
 {
@@ -8,6 +9,19 @@ namespace QteaLib
 
     public class TeaDocumentManager
     {
+        public static TeaDocumentManager _instance;
+        public static TeaDocumentManager Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = new TeaDocumentManager();
+                }
+                return _instance;
+            }
+        }
+
         // Open documents loaded into the IDE
         private readonly List<TeaDocument> _documents = new List<TeaDocument>();
         private readonly TeaDocumentIO _io = new TeaDocumentIO();
@@ -16,6 +30,9 @@ namespace QteaLib
         public TeaDocumentManager()
         {
             ActiveDocument = null;
+            var document = new TeaDocument("test", Directory.GetCurrentDirectory() + "\\testdocs\\", "Tea File", ".t", QteaLib.Templates.QmlMainTemplate, true);
+            _documents.Add(_io.OpenFromFile(document));
+            ActiveDocument = _documents[0];
         }
 
         public TeaDocumentManager(TeaDocument defaultDocument)
@@ -25,13 +42,6 @@ namespace QteaLib
             ActiveDocument = _documents[0];
         }
         
-        public TeaDocumentManager(string defaultDocumentPath)
-        {
-            if (defaultDocumentPath == string.Empty) return;
-            _documents.Add(_io.OpenFromPath(defaultDocumentPath));
-            ActiveDocument = _documents[0];
-        }
-
         public void OpenDocument(TeaDocument document)
         {
             var file = _io.OpenFromFile(document);

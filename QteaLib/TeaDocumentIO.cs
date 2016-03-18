@@ -48,6 +48,7 @@ namespace QteaLib
         /// <param name="file">file to write</param>
         public bool SaveToFile(TeaDocument file)
         {
+            if (file.Meta.Path == string.Empty) return false;
             if (!Directory.Exists(file.Meta.Path)) Directory.CreateDirectory(file.Meta.Path);
             if (!File.Exists(file.Meta.Path + file.Meta.Name + file.Meta.FileExtension)) return false;
             using (var w = new StreamWriter(file.Meta.Path + file.Meta.Name + file.Meta.FileExtension))
